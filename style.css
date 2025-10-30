@@ -272,7 +272,7 @@ main {
     align-items: flex-start;
     height: 100%;
     gap: 1rem;
-    border-radius: 0px 0px 0px 12px;
+    border-radius: 0px 0px 12px 0px;
 
     @media (max-width: 500px){
         border-radius: 0px 0px 12px 12px;
