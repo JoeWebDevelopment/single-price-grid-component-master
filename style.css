@@ -1,0 +1,301 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+@layer customs{
+    :root{
+
+      /* colors */
+      --clr-neutral: #FFF;      
+      --clr-dark: #9aa7be;
+      --clr-teal-dark: #2ab3b1;
+      --clr-teal-light: #4abfbd;
+      --clr-light-accent: #E6EFF5;  
+      --heading-accent: #C0DF33;  
+
+    --ff-body: "Karla", sans-serif;
+
+    }
+}
+
+
+@layer reset{
+    /* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  font-family: var(--ff-body);
+  font-size: 12px;
+  background-color: var(--clr-light-accent);
+}
+
+main {
+  height: 100%;
+  margin-block-end: 2.5rem;
+
+  
+}
+
+.price-grid{
+    max-width: 635px;
+    max-height: 475px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+     "community community"
+     "subscription why" ;
+
+     @media (max-width: 500px){
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        " community"
+        "subscription"
+        "why"
+        
+        ;
+        max-width: 311px;
+    }
+   
+
+
+}
+
+
+    
+.price-grid > .community {
+    grid-area: community;
+    
+}
+
+.price-grid > .sign-up{
+    grid-area: subscription;
+}
+
+.price-grid > .why {
+    grid-area: why;
+}
+
+
+
+
+.grid-item{
+    padding: 2.5rem;
+}
+
+
+.community{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 100%;
+    gap: 1.5rem;
+    background-color: var(--clr-neutral);
+    border-radius: 12px 12px 0 0;
+
+}
+
+.grid-heading{
+    color: var(--clr-teal-dark);
+    font-size: 1.5rem;
+    line-height: 115%;
+    letter-spacing: -0.25px;
+    font-weight: 700;
+}
+
+.community-text{
+    color: var(--heading-accent);
+    font-size: 1.125rem;
+    line-height: 115%;
+    letter-spacing: -0.25px;
+    font-weight: 700;
+}
+
+.community-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.community-info{
+    color: var(--clr-dark);
+    font-weight: 400;
+    line-height: 115%;
+    letter-spacing: .25px;
+    font-size: 1rem;
+}
+
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-teal-dark);
+    height: 100%;
+    justify-content: space-around;
+    padding: 2.5rem;
+    border-radius: 0px 0px 0px 12px;
+    gap: 2rem;
+
+    @media (max-width: 500px){
+        border-radius: 0;
+    }
+
+}
+
+.subscription-heading{
+    color: var(--clr-neutral);
+    font-size: 1.125rem;
+    line-height: 115%;
+    letter-spacing: -0.25px;
+    font-weight: 700%;
+}
+
+
+
+.why{
+    background-color: var(--clr-teal-light);
+    height: 100%;
+}
+
+.sub-price-info{
+    color: var(--clr-light-accent);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 100;
+    font-size: 1rem;
+    line-height: 165%;
+    letter-spacing: -0.5px;
+}
+
+.sub-price{
+    font-size: 2rem;
+    color: var(--clr-neutral);
+    font-weight: 700;
+}
+
+.sub-info-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sign-up  p:last-of-type{
+    font-size: 1rem;
+    color: var(--clr-neutral);
+    line-height: 165%;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+}
+
+.price-grid a{
+    background-color: var(--heading-accent);
+    padding: .5rem;
+    text-align: center;
+    border-radius: 5px;
+    color: var(--clr-neutral);
+    font-size: 1rem;
+    line-height: 165%;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+
+}
+
+.why{
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    gap: 1rem;
+    border-radius: 0px 0px 0px 12px;
+
+    @media (max-width: 500px){
+        border-radius: 0px 0px 12px 12px;
+    }
+
+}
+
+.why h3{
+    text-align: left;
+    width: 100%;
+    font-size: 1.2rem;
+    color: var(--clr-neutral)
+}
+
+
+.why p{
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--clr-neutral);
+    vertical-align: top;
+    width: 100%;
+    text-align: left;
+    opacity: 75%;
+    line-height: 145%;
+    letter-spacing: 0px;
+}
